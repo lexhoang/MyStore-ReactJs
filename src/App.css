@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* TITLE */
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000;
 }
 
-.App-link {
-  color: #61dafb;
+.header:before,
+.header:after {
+  content: '';
+  margin: auto 1em;
+  border-bottom: solid 2px;
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.title {
+  position: relative;
+  padding: 0.25em 1em;
+  overflow: hidden;
+  background: linear-gradient(#000, #000) no-repeat top center, linear-gradient(#000, #000) no-repeat bottom center;
+  background-size: calc(100% - 1.7em) 2px;
+}
+
+.title:before,
+.title:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: solid 2px;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(45deg)
+}
+
+.title:after {
+  transform: skew(-45deg)
+}
+
+
+/* SLIDE */
+.img-slide img {
+  /* border-radius: 12px; */
+  height: 600px;
+  width: 100%;
+}
+
+/* Mobile */
+@media only screen and (max-width:46.1875em) {
+  .img-slide img {
+    /* border-radius: 12px; */
+    height: 220px;
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Tablet */
+@media only screen and (min-width:46.25em) and (max-width: 63.9375em) {
+  .img-slide img {
+    /* border-radius: 12px; */
+    height: 350px;
+    width: 100%;
   }
+}
+
+.name-product {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.BreadCrumb {
+  /* margin-left: 50px; */
+  padding: 4px 0 8px 0;
+}
+
+.BreadCrumb:hover {
+  color: #ff5722;
+  font-weight: bold;
+}
+
+
+.text-login:hover {
+  color: rgb(29, 202, 144)
+}
+
+.text-nav:hover {
+  /* opacity:0.5 */
+  color: #ff680a
+    /* color: #f0f0f0 */
+}
+
+.text-form {
+  color: #479e56
+}
+
+.text-form:hover {
+  color: blue
+}
+
+.product-card {
+  transition: 0.8s;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  transform: scale(1.06);
+}
+
+.img-card,
+.hover-related,
+.hover-slide {
+  transition: 0.8s;
+}
+
+.img-card:hover {
+  transform: scale(1.14);
+}
+
+.hover-related:hover,
+.hover-slide:hover {
+  transform: scale(0.9);
 }
