@@ -216,14 +216,21 @@ function Cart() {
                                             </Grid>
                                         </TableCell>
 
-                                        <TableCell align="center" sx={{ color: "#26a69a" }}><b>{order.info.name}</b></TableCell>
-
-                                        <TableCell align="center">{numberWithCommas(order.info.promotionPrice)} VNĐ</TableCell>
-
-
-                                        <TableCell align="center" sx={{ color: "red" }}>
+                                        <TableCell align="center" sx={{ color: "#26a69a" }}>
                                             <Typography variant="body1">
-                                                <b>{numberWithCommas(order.quantity * order.info.promotionPrice)} VNĐ</b>
+                                                <b>{order.info.name}</b>
+                                            </Typography>
+                                        </TableCell>
+
+                                        <TableCell align="center">
+                                            <Typography variant="body1">
+                                                <b>${numberWithCommas(order.info.promotionPrice)}</b>
+                                            </Typography>
+                                        </TableCell>
+
+                                        <TableCell align="center" sx={{ color: "#d81b60" }}>
+                                            <Typography variant="body1">
+                                                <b>${numberWithCommas(order.quantity * order.info.promotionPrice)}</b>
                                             </Typography>
                                         </TableCell>
 
@@ -244,7 +251,7 @@ function Cart() {
                                     <TableCell className="text-center">
                                         <Typography variant='body1' sx={{ color: "red" }}>
                                             <Typography variant='h6'>
-                                                <b>{numberWithCommas(itemTotal)} VNĐ</b>
+                                                <b>${numberWithCommas(itemTotal)}</b>
                                             </Typography>
                                         </Typography>
                                     </TableCell>

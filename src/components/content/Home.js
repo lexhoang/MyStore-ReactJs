@@ -90,15 +90,25 @@ function Home() {
                         </Typography>
 
                         <Typography
-                          variant="body1"
-                          color="text.secondary"
-                          mt={1}
+                          variant="body2"
+                          component="div"
+                          className="name-product"
+                          style={{ color: "#000", opacity: "0.5" }}
                           align="center"
                         >
-                          <strike><b>{numberWithCommas(product.buyPrice)} VNĐ</b></strike>
+                          <b>{product.description}</b>
+                        </Typography>
+
+                        <Typography
+                          variant="body1"
+                          color="text.secondary"
+                          mt={3}
+                          align="center"
+                        >
+                          <b>Giá cũ:</b> <strike><b>${numberWithCommas(product.buyPrice)}</b></strike>
                         </Typography>
                         <Typography variant="h6" align="center" sx={{ color: "red" }}>
-                          <b>{numberWithCommas(product.promotionPrice)} VNĐ</b>
+                          Giá mới: <b>${numberWithCommas(product.promotionPrice)}</b>
                         </Typography>
                       </CardContent>
                     </CardActionArea>

@@ -12,7 +12,7 @@ function RelatedProject() {
     }
 
     useEffect(() => {
-        fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/?limit=6&skip=10")
+        fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/?limit=6&skip=7")
             .then((data) => {
                 setRelatedProject(data.data);
             })

@@ -70,7 +70,7 @@ function Products() {
   }
 
   return (
-    <Container>
+    <div>
       <Grid container>
         {allProduct.map((product, index) => {
           return (
@@ -89,7 +89,9 @@ function Products() {
                       />
                       <CardContent>
                         <Typography
-                          style={{ fontSize: "16px", height: "50px" }}
+                          mt={2}
+                          variant="h5"
+                          style={{ fontSize: "18px", height: "50px", opacity: "0.8" }}
                           component="div"
                           className="name-product"
                           align="center"
@@ -98,15 +100,15 @@ function Products() {
                         </Typography>
                       </CardContent>
 
-                      <Grid container sx={{ p: 1 }}>
+                      <Grid container sx={{ pt: 1, pb: 2 }}>
                         <Grid item xs={6} align="right">
-                          <Typography variant="body2" color="text.secondary" sx={{ mr: 1 }}>
-                            <strike>{numberWithCommas(product.buyPrice)}đ</strike>
+                          <Typography variant="body1" sx={{ mr: 2, fontSize: "18px", opacity: "0.6" }}>
+                            <strike><b>${numberWithCommas(product.buyPrice)}</b></strike>
                           </Typography>
                         </Grid>
                         <Grid item xs={6} >
-                          <Typography variant="caption" sx={{ color: "red", fontSize: "15px" }}>
-                            <b>{numberWithCommas(product.promotionPrice)}đ</b>
+                          <Typography variant="h5" sx={{ color: "red" }}>
+                            <b>${numberWithCommas(product.promotionPrice)}</b>
                           </Typography>
                         </Grid>
                       </Grid>
@@ -129,7 +131,7 @@ function Products() {
           ></Pagination>
         </Grid>
       </Grid>
-    </Container>
+    </div>
   );
 }
 

@@ -117,9 +117,9 @@ function ProductDetail() {
 
           <Grid container mt={5}>
             <Grid item xs={12}>
-              <Typography variant="body1">
-                <strike>
-                  <b style={{ opacity: 0.7 }}>{productInfo.buyPrice} VNĐ</b>
+              <Typography variant="h6">
+                <b>Giá cũ:</b> <strike>
+                  <b style={{ opacity: 0.7 }}>${productInfo.buyPrice}</b>
                 </strike>
               </Typography>
             </Grid>
@@ -128,7 +128,7 @@ function ProductDetail() {
           <Grid container mt={1}>
             <Grid item xs={12}>
               <Typography variant="h5">
-                <b style={{ color: "red" }}>{productInfo.promotionPrice} VNĐ</b>
+                <b style={{ color: "red" }}>Giá mới: ${(productInfo.promotionPrice)}</b>
               </Typography>
             </Grid>
           </Grid>
@@ -152,13 +152,18 @@ function ProductDetail() {
                   </Grid>
 
                   <Grid item xs={9} sm={6}>
-                    <Button onClick={plusQuantity} size="small">
-                      <AddCircleIcon />
-                    </Button>
+                    <Grid item xs={12} sm={6}>
+                      <Button onClick={plusQuantity} size="small">
+                        <AddCircleIcon />
+                      </Button>
+                    </Grid>
 
-                    <Button onClick={minusQuantity} size="small">
-                      <RemoveCircleIcon />
-                    </Button>
+                    <Grid item xs={12} sm={6}>
+                      <Button onClick={minusQuantity} size="small">
+                        <RemoveCircleIcon />
+                      </Button>
+                    </Grid>
+
                   </Grid>
                 </Grid>
               </Grid>
@@ -180,7 +185,7 @@ function ProductDetail() {
           >
             <Typography align="center" variant="body1">
               <MonetizationOnIcon /> <b>Thành tiền:</b>
-              &nbsp; <span>{numberWithCommas(bill)} <b>VNĐ</b></span>
+              &nbsp; <b>${numberWithCommas(bill)}</b>
             </Typography>
           </Grid>
         </Grid>

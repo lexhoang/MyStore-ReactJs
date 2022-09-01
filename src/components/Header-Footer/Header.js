@@ -135,8 +135,8 @@ function Header() {
                 textDecoration: 'none',
               }}
             >
-              <img src={Logo1} width="80" />
-              {/* <img src={Logo} width="200" /> */}
+              {/* <img src={Logo1} width="100" /> */}
+              <img src={Logo} width="180" />
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -191,7 +191,8 @@ function Header() {
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             </Box>
-            <Typography variant="h5"
+            <Typography
+              variant="h5"
               noWrap
               component="a"
               href="/"
@@ -203,13 +204,13 @@ function Header() {
               }}
             >
 
-              <img src={Logo} width="200" />
+              <img src={Logo} width="100" />
             </Typography>
 
-            <Box sx={{ flexGrow: 1, ml: 24, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 1, ml: 10, display: { xs: "none", md: "flex" } }}>
               <NavLink to="/">
-                <img src={Logo} width="200" />
-                {/* <img src={Logo1} width="80" /> */}
+                {/* <img src={Logo} width="200" /> */}
+                <img src={Logo1} width="120" />
               </NavLink>
             </Box>
 

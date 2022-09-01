@@ -4,20 +4,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
 
-//Style
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 450,
-    bgcolor: 'background.paper',
-    border: '2px solid #fff',
-    boxShadow: 24,
-    pb: 3,
-    fontWeight: "bold",
-};
-
 
 function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) {
     const navigate = useNavigate();
@@ -132,7 +118,7 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
     return (
         <Container>
             <Modal open={openModalOrder} onClose={btnCancleClick} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                <Box sx={style}>
+                <Box className="modal-order">
                     <Grid item xs={12} align="center" p={1} style={{ backgroundColor: "#37474f" }}>
                         <Typography variant="h5" gutterBottom sx={{ color: "#ff5722" }}>
                             <b>Xác nhận đơn hàng</b>
@@ -143,68 +129,68 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                         <Grid item xs={12} sx={{ pr: 5, pl: 3 }}>
                             <Grid container>
                                 {/* Full name   */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Full name:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="Full name" size="small" fullWidth value={customerName} onChange={(event) => { setCutomerName(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Phone */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Phone:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="Phone" size="small" fullWidth value={customerPhone} onChange={(event) => { setCutomerPhone(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Email */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Email:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="Email" size="small" fullWidth value={customerEmail} onChange={(event) => { setCutomerEmail(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Address */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Address:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="Address" size="small" fullWidth value={customerAddress} onChange={(event) => { setCutomerAddress(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* City */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>City:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="City" size="small" fullWidth value={customerCity} onChange={(event) => { setCutomerCity(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Country */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Country:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
-                                            <FormControl sx={{ width: 200 }}>
+                                        <Grid item xs={12} sm={8}>
+                                            <FormControl fullWidth>
                                                 <InputLabel id="demo-simple-select-helper-label">Quốc gia</InputLabel>
                                                 <Select
                                                     id="registerstatus-select"
@@ -223,23 +209,23 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                                     </Grid>
                                 </Grid>
                                 {/* Shipped date  */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Shipped date:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="Shipped date" size="small" fullWidth value={shippedDate} onChange={(event) => { setShippedDate(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Note  */}
-                                <Grid item sm={12} mt={1}>
+                                <Grid item xs={12} sm={12} mt={2}>
                                     <Grid container>
-                                        <Grid item sm={4}>
+                                        <Grid item xs={12} sm={4}>
                                             <label>Note:</label>
                                         </Grid>
-                                        <Grid item sm={8}>
+                                        <Grid item xs={12} sm={8}>
                                             <TextField label="Note" size="small" fullWidth value={note} onChange={(event) => { setNote(event.target.value) }} />
                                         </Grid>
                                     </Grid>
@@ -247,12 +233,12 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                                 {/* Total  */}
                                 <Grid item xs={12} mt={2}>
                                     <Grid container>
-                                        <Grid item xs={4}>
+                                        <Grid item xs={6} sm={4} md={4}>
                                             <label>Thành tiền:</label>
                                         </Grid>
-                                        <Grid item xs={8}>
+                                        <Grid item xs={6} sm={8} md={8}>
                                             <Typography variant="h6" sx={{ color: "red" }}>
-                                                <b> {numberWithCommas(itemTotal)}đ</b>
+                                                <b>${numberWithCommas(itemTotal)}</b>
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -263,12 +249,12 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                     </Grid>
 
                     <Grid container>
-                        <Grid item sm={12} mt={3}>
+                        <Grid item xs={12} sm={12} mt={3}>
                             <Grid container mt={4}>
-                                <Grid item sm={8} align="center">
+                                <Grid item xs={12} sm={8} align="center">
                                     <Button onClick={onBtnOrderClick} className="bg-success w-75 text-white">Tạo đơn hàng</Button>
                                 </Grid>
-                                <Grid item sm={4} align="center">
+                                <Grid item xs={12} sm={4} align="center">
                                     <Button onClick={btnCancleClick} className="bg-secondary w-75 text-white">Hủy Bỏ</Button>
                                 </Grid>
                             </Grid>

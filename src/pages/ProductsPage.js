@@ -28,7 +28,7 @@ function ProductsPage() {
       <ProductFilter />
 
       <Container className="mb-5">
-        <Container>
+        <div>
           <Grid item xs={12} mt={8} mb={1} p={2} align="center">
             <div className="header">
               <h5 className="title">
@@ -36,7 +36,7 @@ function ProductsPage() {
               </h5>
             </div>
           </Grid>
-        </Container>
+        </div>
         <Grid container
         // style={{
         //   borderLeft: "2px solid #009688",
