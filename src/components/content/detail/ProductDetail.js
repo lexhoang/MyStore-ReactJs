@@ -67,7 +67,7 @@ function ProductDetail() {
 
 
   useEffect(() => {
-    fetchAPI("http://localhost:8000/products/" + productId)
+    fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/" + productId)
       .then((data) => {
         console.log(data);
         setProductInfo(data.data)

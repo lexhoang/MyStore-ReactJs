@@ -18,7 +18,7 @@ function Home() {
 
   useEffect((data) => {
     if (nameProduct === "") {
-      fetchAPI(`http://localhost:8000/products/?limit=8`)
+      fetchAPI(`https://my-store-nodejs-999.herokuapp.com/products/?limit=8`)
         .then((data) => {
           dispatch({
             type: "ALL_PRODUCT",
@@ -30,7 +30,7 @@ function Home() {
           console.error(error.message);
         });
     } else {
-      fetchAPI(`http://localhost:8000/products/?name=${nameProduct}`)
+      fetchAPI(`https://my-store-nodejs-999.herokuapp.com/products/?name=${nameProduct}`)
         .then((data) => {
           dispatch({
             type: "ALL_PRODUCT",

@@ -64,7 +64,7 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             };
-            fetchAPI("http://localhost:8000/customers/phone/", body)
+            fetchAPI("https://my-store-nodejs-999.herokuapp.com/customers/phone/", body)
                 .then((data) => {
                     console.log(data);
                     swal("Đặt hàng thành công!", "You clicked the button!", "success", {
