@@ -60,7 +60,7 @@ function Footer() {
 
           <Grid item xs={6} lg={3} md={3} sm={3} align="center" className="pt-4">
             <Typography variant="h4">
-              <b>HEADER PHONE SHOP</b>
+              <b>Hoang Watch Store</b>
             </Typography>
             <Grid container className="d-flex justify-content-center mt-3">
               <Link
