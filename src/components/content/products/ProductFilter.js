@@ -118,7 +118,7 @@ function ProductFilter() {
                     </Grid>
                 </Grid>
                 <Grid item xs={2}></Grid>
-                <Grid item xs={6} lg={6} md={6} sm={6}>
+                <Grid item xs={12} lg={6} md={6} sm={6}>
                     <Grid item xs={12}>
                         <Typography variant="body1"><b>Brand</b></Typography>
                     </Grid>
