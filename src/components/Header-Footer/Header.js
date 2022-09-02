@@ -226,7 +226,14 @@ function Header() {
                 <NavLink to="/products">
                   <Button><FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} /></Button>
                 </NavLink>
+              </Container>
+            </Box>
 
+            <Box>
+              <Container
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
                 <NavLink to="/cart" style={{ textDecoration: 'none' }}>
                   <Button><ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
                     <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
