@@ -107,7 +107,7 @@ function Products() {
                           </Typography>
                         </Grid>
                         <Grid item xs={6} >
-                          <Typography variant="h5" sx={{ color: "red" }}>
+                          <Typography variant="h6" sx={{ color: "red" }}>
                             <b>${numberWithCommas(product.promotionPrice)}</b>
                           </Typography>
                         </Grid>
