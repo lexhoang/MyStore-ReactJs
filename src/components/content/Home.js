@@ -66,7 +66,7 @@ function Home() {
         <Grid container>
           {allProduct.map((product, index) => {
             return (
-              <Grid item xs={6} lg={3} md={3} sm={6} mb={3} className="p-3" key={index}>
+              <Grid item xs={12} lg={3} md={3} sm={6} mb={3} className="p-3" key={index}>
                 <NavLink to={product._id} style={{ textDecoration: "none" }}>
                   <div className="home-card">
                     {/* <Card> */}
