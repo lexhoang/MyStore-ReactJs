@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 function BreadCrumb({ breadCrumbs }) {
     return (
-        <div style={{ backgroundColor: "#cfd8dc", marginTop: "96px" }}>
+        <div style={{ backgroundColor: "#cfd8dc", marginTop: "83px" }}>
             <Container>
                 <Grid container mt={1}>
                     <Breadcrumbs separator="›" aria-label="breadcrumb" color="black">
