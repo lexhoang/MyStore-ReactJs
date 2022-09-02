@@ -207,7 +207,7 @@ function Header() {
               <img src={Logo} width="100" />
             </Typography>
 
-            <Box sx={{ flexGrow: 1, ml: 16, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 1, ml: 17, display: { xs: "none", md: "flex" } }}>
               <NavLink to="/">
                 {/* <img src={Logo} width="200" /> */}
                 <img src={Logo1} width="120" />
