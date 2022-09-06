@@ -118,7 +118,7 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
     return (
         <Container>
             <Modal open={openModalOrder} onClose={btnCancleClick} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                <Box className="modal-order">
+                <Box className="modal-style">
                     <Grid item xs={12} align="center" p={1} style={{ backgroundColor: "#37474f" }}>
                         <Typography variant="h5" gutterBottom sx={{ color: "#ff5722" }}>
                             <b>Xác nhận đơn hàng</b>

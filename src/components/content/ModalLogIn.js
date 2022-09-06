@@ -9,20 +9,20 @@ import Modal from '@mui/material/Modal';
 function ModalLogIn({ openModalLogIn, handleCloseModal, loginGoogle }) {
 
     //STYLE:
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 500,
-        bgcolor: '#dee6e9',
-        border: '3px solid #fff',
-        boxShadow: 24,
-        pt: 1,
-        pr: 3,
-        pl: 3,
-        pb: 3,
-    }
+    // const style = {
+    //     position: 'absolute',
+    //     top: '50%',
+    //     left: '50%',
+    //     transform: 'translate(-50%, -50%)',
+    //     width: 500,
+    //     bgcolor: '#dee6e9',
+    //     border: '3px solid #fff',
+    //     boxShadow: 24,
+    //     pt: 1,
+    //     pr: 3,
+    //     pl: 3,
+    //     pb: 3,
+    // }
 
 
     return (
@@ -30,7 +30,7 @@ function ModalLogIn({ openModalLogIn, handleCloseModal, loginGoogle }) {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
+            <Box className="modal-style">
                 <Grid item xs={12} align="right">
                     <Button variant="contained" size="small" sx={{ backgroundColor: "gray" }} onClick={handleCloseModal}>X</Button>
                 </Grid>
