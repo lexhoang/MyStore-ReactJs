@@ -123,12 +123,12 @@ function Home() {
 
       <Grid item xs={12} style={{ textAlign: "center" }} mt={5}>
         <NavLink to="/products" style={{ textDecoration: "none" }}>
-          <Button
-            variant="contained"
-            style={{ backgroundColor: "#000" }}
+          <button
+            // variant="contained"
+            className="custom-btn btn-showAll"
           >
-            Show All
-          </Button>
+            <span>Click!</span><span>Show All</span>
+          </button>
         </NavLink>
       </Grid>
     </Container>
