@@ -170,15 +170,26 @@ function Header() {
               >
                 <MenuItem>
                   <NavLink to="/">
-                    <Button><HomeIcon sx={{ fontSize: 30, color: "black" }} /></Button>
+                    <Button>
+                      <Tooltip title="Trang chủ">
+                        <HomeIcon sx={{ fontSize: 30, color: "black" }} />
+                      </Tooltip>
+                    </Button>
                   </NavLink>
 
                   <NavLink to="/products">
-                    <Button><FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} /></Button>
+                    <Button>
+                      <Tooltip title="Trang sản phẩm">
+                        <FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} />
+                      </Tooltip>
+                    </Button>
                   </NavLink>
 
                   <NavLink to="/cart" style={{ textDecoration: 'none' }}>
-                    <Button><ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
+                    <Button>
+                      <Tooltip title="Giỏ hàng">
+                        <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
+                      </Tooltip>
                       <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
                         <span style={{ fontSize: "16px" }}>
                           {itemList}
@@ -220,11 +231,19 @@ function Header() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <NavLink to="/">
-                  <Button><HomeIcon sx={{ fontSize: 30, color: "black" }} /></Button>
+                  <Button>
+                    <Tooltip title="Trang chủ">
+                      <HomeIcon sx={{ fontSize: 30, color: "black" }} />
+                    </Tooltip>
+                  </Button>
                 </NavLink>
 
                 <NavLink to="/products">
-                  <Button><FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} /></Button>
+                  <Button>
+                    <Tooltip title="Trang sản phẩm">
+                      <FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} />
+                    </Tooltip>
+                  </Button>
                 </NavLink>
               </Container>
             </Box>
@@ -235,7 +254,10 @@ function Header() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <NavLink to="/cart" style={{ textDecoration: 'none' }}>
-                  <Button><ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
+                  <Button>
+                    <Tooltip title="Giỏ hàng">
+                      <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
+                    </Tooltip>
                     <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
                       <span style={{ fontSize: "16px" }}>
                         {itemList}
