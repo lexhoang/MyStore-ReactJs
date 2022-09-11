@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, Button, Rating } from "@mui/material";
+import { Container, Grid, Typography, Button, Rating, Modal, Box } from "@mui/material";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -16,6 +16,7 @@ function ProductDetail() {
 
   // const { use } = useSelector((reduxData) => reduxData.taskReducer);
   // const dispatch = useDispatch();
+
 
 
   //Tính tiền
@@ -62,7 +63,7 @@ function ProductDetail() {
     console.log(orderList);
 
     localStorage.setItem("orderList", JSON.stringify(orderList));
-    window.location.reload();
+    setOpen(true)
   };
 
 
@@ -82,6 +83,15 @@ function ProductDetail() {
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
+
+
+  //Modal xác nhận đơn hàng
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+    window.location.reload();
+  }
+
 
   return (
     <Container style={{ backgroundColor: "#ffffff" }}>
@@ -202,6 +212,21 @@ function ProductDetail() {
           <Typography variant="body1">{productInfo.description}</Typography>
         </Grid>
       </Grid>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className="modal-detail text-center">
+          <Typography variant="h6" className="mt-3">
+            Bạn đã thêm thành công sản phẩm vào giỏ hàng
+          </Typography>
+
+          <Button onClick={handleClose} variant="contained" className="mt-5">OK</Button>
+        </Box>
+      </Modal>
     </Container>
   );
 }
