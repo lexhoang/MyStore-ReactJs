@@ -218,7 +218,7 @@ function Header() {
               <img src={Logo} width="100" />
             </Typography>
 
-            <Box sx={{ flexGrow: 1, ml: 17, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 1, ml: 18, display: { xs: "none", md: "flex" } }}>
               <NavLink to="/">
                 {/* <img src={Logo} width="200" /> */}
                 <img src={Logo1} width="120" />
@@ -230,19 +230,21 @@ function Header() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <NavLink to="/">
+                <NavLink to="/" style={{ textDecoration: 'none', }}>
                   <Button>
                     <Tooltip title="Trang chủ">
-                      <HomeIcon sx={{ fontSize: 30, color: "black" }} />
+                      <HomeIcon sx={{ fontSize: 22, color: "black" }} />
                     </Tooltip>
+                    <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Home</Typography>
                   </Button>
                 </NavLink>
 
-                <NavLink to="/products">
+                <NavLink to="/products" style={{ textDecoration: 'none', }}>
                   <Button>
                     <Tooltip title="Trang sản phẩm">
-                      <FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} />
+                      <FormatListBulletedIcon sx={{ fontSize: 22, color: "black" }} />
                     </Tooltip>
+                    <Typography className="" variant="body2" style={{ color: "black" }}>List</Typography>
                   </Button>
                 </NavLink>
               </Container>
