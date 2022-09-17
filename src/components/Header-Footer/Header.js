@@ -1,6 +1,6 @@
 import Logo from "../../assets/images/logo.png"
 import Logo1 from "../../assets/images/logo1.jpg"
-import ModalLogIn from "../content/ModalLogIn";
+import ModalLogIn from "../content/home/ModalLogIn";
 
 
 import { AppBar, Box, Toolbar, IconButton, Menu, MenuItem, Avatar, Tooltip } from '@mui/material';
@@ -120,9 +120,9 @@ function Header() {
   }, [])
 
   return (
-    <Container>
+    <div style={{ marginBottom: "78px" }}>
       <AppBar position="fixed" style={{ backgroundColor: "#fff" }}>
-        <Container maxWidth="xl">
+        <div maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
               variant="h6"
@@ -130,7 +130,7 @@ function Header() {
               component="a"
               href="/"
               sx={{
-                ml: 10,
+                ml: 5,
                 display: { xs: 'none', md: 'flex' },
                 textDecoration: 'none',
               }}
@@ -214,11 +214,11 @@ function Header() {
                 textDecoration: 'none',
               }}
             >
-
-              <img src={Logo} width="100" />
+              <img src={Logo1} width="100" />
+              {/* <img src={Logo} width="100" /> */}
             </Typography>
 
-            <Box sx={{ flexGrow: 1, ml: 18, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 1, ml: 32, display: { xs: "none", md: "flex" } }}>
               <NavLink to="/">
                 {/* <img src={Logo} width="200" /> */}
                 <img src={Logo1} width="120" />
@@ -271,7 +271,7 @@ function Header() {
             </Box>
             {
               user ?
-                <Box sx={{ flexGrow: 0 }}>
+                <Box sx={{ flexGrow: 0, mr: 5 }}>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       <Avatar alt="Remy Sharp" src={user.photoURL} />
@@ -295,7 +295,7 @@ function Header() {
                   </Menu>
                 </Box>
                 :
-                <Box sx={{ flexGrow: 0 }}>
+                <Box sx={{ flexGrow: 0, mr: 5 }}>
                   <Typography variant="body1" onClick={logIn} style={{ cursor: "pointer", color: "#43a047" }}>
                     <b className="text-login"><LoginIcon /> Login</b>
                   </Typography>
@@ -307,14 +307,14 @@ function Header() {
             }
 
           </Toolbar>
-        </Container>
+        </div>
       </AppBar >
 
 
       {/* Modal LogIn */}
       < ModalLogIn openModalLogIn={openModalLogIn} handleCloseModal={handleCloseModal} loginGoogle={loginGoogle} />
 
-    </Container >
+    </div >
   );
 }
 

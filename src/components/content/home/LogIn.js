@@ -2,7 +2,7 @@ import { Grid, Typography, Button, Container } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import GoogleIcon from '@mui/icons-material/Google';
 
-import { auth, googleProvider } from "../../firebase";
+import { auth, googleProvider } from "../../../firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";

@@ -1,7 +1,8 @@
 import Header from "../components/Header-Footer/Header";
 import Slide from "../components/Header-Footer/Slider";
-import RelatedProject from "../components/content/detail/RelatedProduct"
-import HomeContent from "../components/content/Home";
+import ProductHot from "../components/content/home/ProductHot";
+import Introduce from "../components/content/home/Introduce";
+import ProductNew from "../components/content/home/ProductNew";
 import Footer from "../components/Header-Footer/Footer";
 
 const breadCrumbs = [
@@ -17,8 +18,9 @@ function HomePage() {
     <div>
       <Header />
       <Slide />
-      <RelatedProject />
-      <HomeContent />
+      <ProductHot />
+      <Introduce />
+      <ProductNew />
       <Footer />
     </div>
   );

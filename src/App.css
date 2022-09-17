@@ -42,15 +42,14 @@
 /* SLIDE */
 .img-slide img {
   /* border-radius: 12px; */
-  height: 600px;
+  height: 650px;
   width: 100%;
 }
 
 /* Mobile */
 @media only screen and (max-width:46.1875em) {
   .img-slide img {
-    /* border-radius: 12px; */
-    height: 250px;
+    height: 200px;
     width: 100%;
   }
 }
@@ -58,8 +57,14 @@
 /* Tablet */
 @media only screen and (min-width:46.25em) and (max-width: 63.9375em) {
   .img-slide img {
-    /* border-radius: 12px; */
     height: 480px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width:1824px) {
+  .img-slide img {
+    height: 880px;
     width: 100%;
   }
 }

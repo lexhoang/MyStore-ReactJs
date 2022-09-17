@@ -1,5 +1,5 @@
 import ModalOrder from "./ModalOrder";
-import ModalLogIn from "../ModalLogIn"
+import ModalLogIn from "../home/ModalLogIn"
 
 import { Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Typography } from "@mui/material";
 
