@@ -51,13 +51,13 @@ function ProductNew() {
   return (
     <Container>
       {/* ////////  * PRODUCT *    ////////////// */}
-      <Grid item xs={12} mt={16} mb={4} p={2}>
+      <Grid item xs={12} mt={16} p={2}>
         <Typography variant="h4" className="text-center"><b>Sản phẩm mới</b></Typography>
       </Grid>
       <Grid container>
         {allProduct.map((product, index) => {
           return (
-            <Grid item xs={12} lg={3} md={3} sm={6} mb={3} p={5} key={index}>
+            <Grid item xs={12} lg={3} md={3} sm={6} mb={3} p={4} key={index}>
               <NavLink to={product._id} style={{ textDecoration: "none" }}>
                 <div className="home-card">
                   {/* <Card> */}
@@ -91,15 +91,15 @@ function ProductNew() {
                       </Typography>
 
                       <Typography
-                        variant="body1"
+                        variant="h6"
                         color="text.secondary"
-                        mt={3}
+                        mt={1}
                         align="center"
                       >
                         <b>Giá cũ:</b> <strike><b>${numberWithCommas(product.buyPrice)}</b></strike>
                       </Typography>
                       <Typography variant="h6" align="center" sx={{ color: "red" }}>
-                        Giá mới: <b>${numberWithCommas(product.promotionPrice)}</b>
+                        <b>  Giá mới: ${numberWithCommas(product.promotionPrice)}</b>
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -115,9 +115,8 @@ function ProductNew() {
         <NavLink to="/products" style={{ textDecoration: "none" }}>
           <button
             // variant="contained"
-            className="custom-btn btn-showAll"
-          >
-            <span>Click!</span><span>Show All</span>
+            className="custom-btn btn-newProduct"
+          ><span>Show All</span>
           </button>
         </NavLink>
       </Grid>

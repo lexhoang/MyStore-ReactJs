@@ -1,4 +1,4 @@
-import { Container, Grid, CardActionArea, CardMedia, CardContent, Typography, Button } from "@mui/material";
+import { Container, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Button } from "@mui/material";
 import { NavLink } from 'react-router-dom';
 
 
@@ -16,7 +16,7 @@ function ProductHot() {
   }
 
   useEffect(() => {
-    fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/?limit=4&skip=8")
+    fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/?limit=6&skip=7")
       .then((data) => {
         setProductHot(data.data);
       })
@@ -32,49 +32,52 @@ function ProductHot() {
   return (
     <Container>
       {/* ////////  * PRODUCT *    ////////////// */}
-      <Grid item xs={12} mt={12} mb={4} p={2} >
+      <Grid item xs={12} mt={12} mb={4}>
         <Typography variant="h4" className="text-center"><b>Sản phẩm nổi bật</b></Typography>
       </Grid>
       <Grid container>
         {productHot.map((product, index) => {
           return (
-            <Grid item xs={12} lg={3} md={3} sm={6} mb={3} p={5} key={index}>
+            <Grid item xs={6} lg={2} md={3} sm={6} className="p-2 pb-5" key={index}>
               <NavLink to={product._id} style={{ textDecoration: "none" }}>
-                <div className="home-card">
-                  {/* <Card> */}
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      width="100%"
-                      image={product.imageUrl}
-                      alt="green iguana"
-                      className="img-card"
-                    />
-                    <CardContent>
-                      <Typography
-                        variant="body1"
-                        component="div"
-                        className="name-product"
-                        style={{ height: "60px", color: "#000", fontSize: "18px" }}
-                        align="center"
-                      >
-                        <b>{product.name}</b>
-                      </Typography>
+                <div className="product-card">
+                  <Card>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        // height="140"
+                        width="200"
+                        image={product.imageUrl}
+                        alt="green iguana"
+                        className="img-card"
+                      />
+                      <CardContent>
+                        <Typography
+                          mt={2}
+                          variant="h6"
+                          style={{ fontSize: "16px", height: "50px", opacity: "0.8" }}
+                          component="div"
+                          className="name-product"
+                          align="center"
+                        >
+                          <b>{product.name}</b>
+                        </Typography>
+                      </CardContent>
 
-                      <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        mt={3}
-                        align="center"
-                      >
-                        <b>Giá cũ:</b> <strike><b>${numberWithCommas(product.buyPrice)}</b></strike>
-                      </Typography>
-                      <Typography variant="h6" align="center" sx={{ color: "red" }}>
-                        Giá mới: <b>${numberWithCommas(product.promotionPrice)}</b>
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  {/* </Card> */}
+                      <Grid container sx={{ pt: 1, pb: 2 }}>
+                        <Grid item xs={6} align="right">
+                          <Typography variant="body1" sx={{ mr: 2, fontSize: "16px", opacity: "0.6" }}>
+                            <strike><b>${numberWithCommas(product.buyPrice)}</b></strike>
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={6} >
+                          <Typography variant="h6" sx={{ color: "red" }}>
+                            <b>${numberWithCommas(product.promotionPrice)}</b>
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </CardActionArea>
+                  </Card>
                 </div>
               </NavLink>
             </Grid>
@@ -86,7 +89,7 @@ function ProductHot() {
         <NavLink to="/products" style={{ textDecoration: "none" }}>
           <button
             // variant="contained"
-            className="custom-btn btn-showAll"
+            className="custom-btn btn-hotProduct"
           >
             <span>Click!</span><span>Show All</span>
           </button>

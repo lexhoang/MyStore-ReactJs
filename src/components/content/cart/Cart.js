@@ -169,7 +169,11 @@ function Cart() {
     return (
         <Container style={{ marginTop: "80px", paddingBottom: "80px" }}>
             <Grid container>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Grid item xs={12} className="text-center">
+                    <Typography variant='h4'><b>YOUR CART</b></Typography>
+                </Grid>
+
+                <Grid item xs={12} sm={12} md={12} lg={12} mt={12}>
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650, fontSize: "2rem" }} size="small">
                             <TableHead style={{ backgroundColor: "#f8bbd0" }}>

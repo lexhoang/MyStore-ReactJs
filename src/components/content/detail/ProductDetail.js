@@ -2,6 +2,7 @@ import { Container, Grid, Typography, Button, Rating, Modal, Box } from "@mui/ma
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -12,6 +13,8 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 function ProductDetail() {
   //Link đến trang theo ID
   const { productId } = useParams();
+  const navigate = useNavigate();
+
   const [productInfo, setProductInfo] = useState({});
 
   // const { use } = useSelector((reduxData) => reduxData.taskReducer);
@@ -89,7 +92,7 @@ function ProductDetail() {
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
-    window.location.reload();
+    navigate("/cart")
   }
 
 
