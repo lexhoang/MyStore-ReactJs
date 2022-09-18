@@ -120,7 +120,7 @@ function Header() {
   }, [])
 
   return (
-    <div style={{ marginBottom: "78px" }}>
+    <Container style={{ marginBottom: "78px" }}>
       <AppBar position="fixed" style={{ backgroundColor: "#fff" }}>
         <div maxWidth="xl">
           <Toolbar disableGutters>
@@ -314,7 +314,7 @@ function Header() {
       {/* Modal LogIn */}
       < ModalLogIn openModalLogIn={openModalLogIn} handleCloseModal={handleCloseModal} loginGoogle={loginGoogle} />
 
-    </div >
+    </Container >
   );
 }
 

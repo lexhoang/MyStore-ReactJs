@@ -182,9 +182,9 @@ function Cart() {
                                         <input type="checkbox" onChange={onSelectAllItem} id="select-all-item" />
                                     </TableCell>
                                     <TableCell align="center" width={"13%"}></TableCell>
-                                    <TableCell align="center" sx={{ fontSize: "16px" }} width="14%">Số Lượng</TableCell>
                                     <TableCell align="center" sx={{ fontSize: "16px" }}>Tên Sản Phẩm</TableCell>
                                     <TableCell align="center" sx={{ fontSize: "16px" }}>Giá bán</TableCell>
+                                    <TableCell align="center" sx={{ fontSize: "16px" }} width="14%">Số Lượng</TableCell>
                                     <TableCell align="center" sx={{ fontSize: "16px" }} width="15%">Thành Tiền</TableCell>
                                     <TableCell align="center" sx={{ fontSize: "16px" }} width="20%"></TableCell>
                                 </TableRow>
@@ -198,26 +198,7 @@ function Cart() {
                                         <TableCell sx={{ width: "5%" }} className="text-center"><input type="checkbox" onChange={onSelectItem} value={order.product} id={order.product} /></TableCell>
 
                                         <TableCell align="center">
-                                            <img style={{ width: "100%" }} src={order.info.imageUrl} />
-                                        </TableCell>
-
-                                        <TableCell align="center">
-                                            <Grid container mt={1}>
-                                                <Grid item xs={6} align="right" mt={2}>
-                                                    <Typography variant="h6" key={index}>
-                                                        {order.quantity}
-                                                    </Typography>
-                                                </Grid>
-
-                                                <Grid item xs={6} align="left">
-                                                    <Button style={{ fontWeight: "bold" }}>
-                                                        <AddCircleIcon onClick={() => onBtnAddProductClick(order)} />
-                                                    </Button>
-                                                    <Button onClick={() => onBtnMinusProductClick(order)} style={{ fontWeight: "bold" }}>
-                                                        <RemoveCircleIcon />
-                                                    </Button>
-                                                </Grid>
-                                            </Grid>
+                                            <img style={{ width: "100%", }} src={order.info.imageUrl} />
                                         </TableCell>
 
                                         <TableCell align="center" sx={{ color: "#26a69a" }}>
@@ -227,19 +208,42 @@ function Cart() {
                                         </TableCell>
 
                                         <TableCell align="center">
-                                            <Typography variant="body1">
-                                                <b>${numberWithCommas(order.info.promotionPrice)}</b>
+                                            <Typography variant="h6">
+                                                ${numberWithCommas(order.info.promotionPrice)}
                                             </Typography>
                                         </TableCell>
 
-                                        <TableCell align="center" sx={{ color: "#d81b60" }}>
-                                            <Typography variant="body1">
+                                        <TableCell align="center">
+                                            <Grid container mt={1}>
+                                                <Grid item xs={4}>
+                                                    <Button onClick={() => onBtnMinusProductClick(order)} style={{ fontWeight: "bold" }}>
+                                                        <RemoveCircleIcon />
+                                                    </Button>
+                                                </Grid>
+
+                                                <Grid item xs={3} align="right">
+                                                    <Typography variant="h6" key={index}>
+                                                        {order.quantity}
+                                                    </Typography>
+                                                </Grid>
+
+                                                <Grid item xs={5}>
+                                                    <Button style={{ fontWeight: "bold" }}>
+                                                        <AddCircleIcon onClick={() => onBtnAddProductClick(order)} />
+                                                    </Button>
+
+                                                </Grid>
+                                            </Grid>
+                                        </TableCell>
+
+                                        <TableCell align="center" sx={{ color: "#f50057" }}>
+                                            <Typography variant="h6">
                                                 <b>${numberWithCommas(order.quantity * order.info.promotionPrice)}</b>
                                             </Typography>
                                         </TableCell>
 
                                         <TableCell sx={{ width: "10%" }} className="text-center">
-                                            <Button variant="contained" size="small" color="success" onClick={() => onDeleteItemClick(order)} sx={{ backgroundColor: "red" }}>Xóa</Button>
+                                            <button onClick={() => onDeleteItemClick(order)} class="custom-btn btn-deleteCart">Delete</button>
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -266,7 +270,7 @@ function Cart() {
                                                 <MonetizationOnIcon /> <b>Thanh toán</b>
                                             </Button>
                                             :
-                                            <Button variant="contained" color="warning" onClick={btnOpenOrder}>
+                                            <Button variant="contained" color="warning" onClick={btnOpenOrder} className="btn-login">
                                                 <LoginIcon /> &ensp; <b>LogIn</b>
                                             </Button>
                                         }
