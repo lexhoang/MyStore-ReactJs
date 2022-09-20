@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './Btn.css'
+import 'animate.css';
 
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
