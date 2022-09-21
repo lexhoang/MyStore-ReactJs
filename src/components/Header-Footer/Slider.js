@@ -71,38 +71,38 @@ function Slider() {
     });
 
     return (
-        <div className="mx-auto">
-            <Row>
-                <Col xs={12} lg={12} md={12} sm={12}>
-                    <Carousel
-                        previous={previousButton}
-                        next={nextButton}
-                        activeIndex={activeIndex}
-                    >
-                        <CarouselIndicators
-                            items={items}
-                            activeIndex={activeIndex}
-                            onClickHandler={(newIndex) => {
-                                if (animating) return;
-                                setActiveIndex(newIndex);
-                            }}
-                        />
-                        {carouselItemData}
-                        <CarouselControl
-                            directionText="Prev"
-                            direction="prev"
-                            onClickHandler={previousButton}
-                        />
-                        <CarouselControl
-                            directionText="Next"
-                            direction="next"
-                            onClickHandler={nextButton}
-                        />
-                    </Carousel>
-                </Col>
+        // <div>
+        //     <Row>
+        <Col xs={12} lg={12} md={12} sm={12}>
+            <Carousel
+                previous={previousButton}
+                next={nextButton}
+                activeIndex={activeIndex}
+            >
+                <CarouselIndicators
+                    items={items}
+                    activeIndex={activeIndex}
+                    onClickHandler={(newIndex) => {
+                        if (animating) return;
+                        setActiveIndex(newIndex);
+                    }}
+                />
+                {carouselItemData}
+                <CarouselControl
+                    directionText="Prev"
+                    direction="prev"
+                    onClickHandler={previousButton}
+                />
+                <CarouselControl
+                    directionText="Next"
+                    direction="next"
+                    onClickHandler={nextButton}
+                />
+            </Carousel>
+        </Col>
 
-            </Row>
-        </div>
+        //     </Row>
+        // </div>
     )
 }
 export default Slider;
