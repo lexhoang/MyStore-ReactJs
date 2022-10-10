@@ -2,8 +2,7 @@ import { Container, Grid, Card, CardActionArea, CardMedia, CardContent, Typograp
 import { NavLink } from 'react-router-dom';
 
 
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 function ProductHot() {

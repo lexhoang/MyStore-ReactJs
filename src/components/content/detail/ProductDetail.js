@@ -99,7 +99,7 @@ function ProductDetail() {
   return (
     <Container style={{ backgroundColor: "#ffffff" }}>
       <Grid container mt={5} p={3}>
-        <Grid item xs={12} lg={6} md={6} sm={6}>
+        <Grid item xs={12} lg={6} md={6} sm={6} className="animate__animated animate__backInLeft">
           <img
             src={productInfo.imageUrl}
             style={{ width: "80%", borderRadius: "14px" }}
@@ -108,7 +108,7 @@ function ProductDetail() {
         </Grid>
 
 
-        <Grid item xs={12} md={6} sm={6} lg={6}>
+        <Grid item xs={12} md={6} sm={6} lg={6} className="animate__animated animate__backInRight animate__delay-1s">
           <Grid container>
             <Grid item xs={12}>
               <Typography variant="h5">
