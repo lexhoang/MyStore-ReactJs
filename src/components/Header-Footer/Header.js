@@ -24,6 +24,20 @@ import { auth, googleProvider } from "../../firebase";
 import { useDispatch, useSelector } from "react-redux"
 
 
+const navLinkStyle = ({ isActive }) => ({
+  backgroundColor: isActive ? "orange" : "",
+  borderRadius: isActive ? "38px" : "",
+  padding: "14px 18px",
+  textDecoration: "none",
+})
+
+const navLinkResponsiveStyle = ({ isActive }) => ({
+  backgroundColor: isActive ? "orange" : "",
+  borderRadius: isActive ? "24px" : "",
+  padding: "6px",
+  textDecoration: "none",
+})
+
 function Header() {
   const { user, nameProduct } = useSelector((reduxData) => reduxData.taskReducer);
 
@@ -171,33 +185,40 @@ function Header() {
                 }}
               >
                 <MenuItem>
-                  <NavLink to="/">
-                    <Button>
-                      <Tooltip title="Trang chủ">
+                  <NavLink to="/" style={navLinkResponsiveStyle}>
+                    <Tooltip title="Trang chủ">
+                      <Button>
                         <HomeIcon sx={{ fontSize: 30, color: "black" }} />
-                      </Tooltip>
-                    </Button>
+                        <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Trang chủ</Typography>
+                      </Button>
+                    </Tooltip>
                   </NavLink>
+                </MenuItem>
 
-                  <NavLink to="/products">
-                    <Button>
-                      <Tooltip title="Trang sản phẩm">
+                <MenuItem>
+                  <NavLink to="/products" style={navLinkResponsiveStyle}>
+                    <Tooltip title="Trang sản phẩm">
+                      <Button>
                         <FormatListBulletedIcon sx={{ fontSize: 30, color: "black" }} />
-                      </Tooltip>
-                    </Button>
+                        <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Trang sản phẩm</Typography>
+                      </Button>
+                    </Tooltip>
                   </NavLink>
+                </MenuItem>
 
-                  <NavLink to="/cart" style={{ textDecoration: 'none' }}>
-                    <Button>
-                      <Tooltip title="Giỏ hàng">
+                <MenuItem>
+                  <NavLink to="/cart" style={navLinkResponsiveStyle}>
+                    <Tooltip title="Giỏ hàng">
+                      <Button>
                         <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
-                      </Tooltip>
-                      <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
-                        <span style={{ fontSize: "16px" }}>
-                          {itemList}
-                        </span>
-                      </div>
-                    </Button>
+                        <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
+                          <span style={{ fontSize: "16px" }}>
+                            {itemList}
+                          </span>
+                        </div>
+                        <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Giỏ hàng</Typography>
+                      </Button>
+                    </Tooltip>
                   </NavLink>
                 </MenuItem>
               </Menu>
@@ -233,7 +254,7 @@ function Header() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <NavLink to="/" style={{ textDecoration: 'none', marginRight: "20px" }}>
+                <NavLink to="/" style={navLinkStyle}>
                   <Tooltip title="Trang chủ">
                     <Button>
                       <HomeIcon sx={{ fontSize: 22, color: "black" }} />
@@ -242,7 +263,7 @@ function Header() {
                   </Tooltip>
                 </NavLink>
 
-                <NavLink to="/products" style={{ textDecoration: 'none', }}>
+                <NavLink to="/products" style={navLinkStyle}>
                   <Tooltip title="Trang sản phẩm">
                     <Button>
                       <FormatListBulletedIcon sx={{ fontSize: 22, color: "black" }} />
@@ -258,7 +279,7 @@ function Header() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <NavLink to="/cart" style={{ textDecoration: 'none' }}>
+                <NavLink to="/cart" style={navLinkStyle}>
                   <Tooltip title="Giỏ hàng">
                     <Button>
                       <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
