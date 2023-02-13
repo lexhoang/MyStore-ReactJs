@@ -20,11 +20,9 @@ function ProductDetail() {
   // const { use } = useSelector((reduxData) => reduxData.taskReducer);
   // const dispatch = useDispatch();
 
-
-
   //Tính tiền
   const [quantity, setQuantity] = useState(1);
-  const [bill, setBill] = useState(0);
+  const [bill, setBill] = useState(1);
 
   const minusQuantity = () => {
     setQuantity(quantity === 1 ? 1 : quantity - 1);
@@ -80,21 +78,22 @@ function ProductDetail() {
   useEffect(() => {
     fetchAPI("http://localhost:8000/products/" + productId)
       .then((data) => {
-        console.log(data);
-        setProductInfo(data.data)
+        // console.log(data);
+        // console.log(data.data);
+        setProductInfo(data.data);
+
+        //Tính tiền
+        // console.log("productInfo.promotionPrice:", data.data.promotionPrice)
+        setBill(quantity === 0 ? 0 : quantity * data.data.promotionPrice);
       })
       .catch((error) => {
         console.error(error.message);
       });
-    //Tính tiền
-    setBill(quantity === 0 ? 0 : quantity * productInfo.promotionPrice);
   }, [quantity]);
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
-
-
 
 
 
@@ -108,7 +107,6 @@ function ProductDetail() {
             className="img-card"
           />
         </Grid>
-
 
         <Grid item xs={12} md={6} sm={6} lg={6} className="animate__animated animate__fadeInUp animate__delay-1s">
           <Grid container>

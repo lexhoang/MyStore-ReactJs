@@ -133,13 +133,15 @@ function Header() {
                 ml: 5,
                 display: { xs: 'none', md: 'flex' },
                 textDecoration: 'none',
+                width: { xs: "160px", md: "180px" }
               }}
             >
               {/* <img src={Logo1} width="100" /> */}
-              <img src={Logo} width="180" />
+              <img src={Logo} width="100%" />
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            {/* Responsive */}
+            <Box sx={{ flexGrow: 2, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -214,38 +216,39 @@ function Header() {
                 textDecoration: 'none',
               }}
             >
-              <img src={Logo1} width="100" />
+              <img src={Logo1} width="120" />
               {/* <img src={Logo} width="100" /> */}
             </Typography>
+            {/* Responsive */}
 
-            <Box sx={{ flexGrow: 1, ml: 32, display: { xs: "none", md: "flex" } }}>
+
+            {/* <Box sx={{ flexGrow: 1, ml: 32, display: { xs: "none", md: "flex" } }}>
               <NavLink to="/">
-                {/* <img src={Logo} width="200" /> */}
                 <img src={Logo1} width="120" />
               </NavLink>
-            </Box>
+            </Box> */}
 
             <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }} style={{ marginRight: "50px" }}>
               <Container
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <NavLink to="/" style={{ textDecoration: 'none', }}>
-                  <Button>
-                    <Tooltip title="Trang chủ">
+                <NavLink to="/" style={{ textDecoration: 'none', marginRight: "20px" }}>
+                  <Tooltip title="Trang chủ">
+                    <Button>
                       <HomeIcon sx={{ fontSize: 22, color: "black" }} />
-                    </Tooltip>
-                    <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Home</Typography>
-                  </Button>
+                      <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Home</Typography>
+                    </Button>
+                  </Tooltip>
                 </NavLink>
 
                 <NavLink to="/products" style={{ textDecoration: 'none', }}>
-                  <Button>
-                    <Tooltip title="Trang sản phẩm">
+                  <Tooltip title="Trang sản phẩm">
+                    <Button>
                       <FormatListBulletedIcon sx={{ fontSize: 22, color: "black" }} />
-                    </Tooltip>
-                    <Typography className="" variant="body2" style={{ color: "black" }}>List</Typography>
-                  </Button>
+                      <Typography className="" variant="body2" style={{ color: "black" }}>List</Typography>
+                    </Button>
+                  </Tooltip>
                 </NavLink>
               </Container>
             </Box>
@@ -256,16 +259,16 @@ function Header() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <NavLink to="/cart" style={{ textDecoration: 'none' }}>
-                  <Button>
-                    <Tooltip title="Giỏ hàng">
+                  <Tooltip title="Giỏ hàng">
+                    <Button>
                       <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
-                    </Tooltip>
-                    <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
-                      <span style={{ fontSize: "16px" }}>
-                        {itemList}
-                      </span>
-                    </div>
-                  </Button>
+                      <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
+                        <span style={{ fontSize: "16px" }}>
+                          {itemList}
+                        </span>
+                      </div>
+                    </Button>
+                  </Tooltip>
                 </NavLink>
               </Container>
             </Box>
