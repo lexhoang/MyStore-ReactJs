@@ -1,4 +1,4 @@
-import { Container, Grid, CardActionArea, CardMedia, CardContent, Typography, Button } from "@mui/material";
+import { Container, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Button } from "@mui/material";
 import { NavLink } from 'react-router-dom';
 
 
@@ -18,7 +18,7 @@ function ProductNew() {
 
   useEffect((data) => {
     if (nameProduct === "") {
-      fetchAPI(`https://my-store-nodejs-999.herokuapp.com/products/?limit=8`)
+      fetchAPI(`http://localhost:8000/products/?limit=8`)
         .then((data) => {
           dispatch({
             type: "ALL_PRODUCT",
@@ -30,7 +30,7 @@ function ProductNew() {
           console.error(error.message);
         });
     } else {
-      fetchAPI(`https://my-store-nodejs-999.herokuapp.com/products/?name=${nameProduct}`)
+      fetchAPI(`http://localhost:8000/products/?name=${nameProduct}`)
         .then((data) => {
           dispatch({
             type: "ALL_PRODUCT",
@@ -52,7 +52,12 @@ function ProductNew() {
     <Container>
       {/* ////////  * PRODUCT *    ////////////// */}
       <Grid item xs={12} mt={16} p={2}>
-        <Typography variant="h4" className="text-center"><b>Sản phẩm mới</b></Typography>
+        <div className="header">
+          <h5 className="title">
+            <b>Sản phẩm mới</b>
+          </h5>
+        </div>
+        {/* <Typography variant="h4" className="text-center"><b>Sản phẩm mới</b></Typography> */}
       </Grid>
       <Grid container>
         {allProduct.map((product, index) => {

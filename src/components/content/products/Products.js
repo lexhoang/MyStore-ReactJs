@@ -33,7 +33,7 @@ function Products() {
         minPrice === 0 &&
         maxPrice === 0
       ) {
-        fetchAPI("https://my-store-nodejs-999.herokuapp.com/products")
+        fetchAPI("http://localhost:8000/products")
           .then((data) => {
             setNoPage(Math.ceil(data.data.length / limit));
             dispatch({
@@ -47,7 +47,7 @@ function Products() {
           });
       } else {
         fetchAPI(
-          `https://my-store-nodejs-999.herokuapp.com/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`
+          `http://localhost:8000/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`
         )
           .then((data) => {
             setNoPage(Math.ceil(data.data.length / limit));

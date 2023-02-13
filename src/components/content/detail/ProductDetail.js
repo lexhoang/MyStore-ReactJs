@@ -23,11 +23,11 @@ function ProductDetail() {
 
 
   //Tính tiền
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [bill, setBill] = useState(0);
 
   const minusQuantity = () => {
-    setQuantity(quantity === 0 ? 0 : quantity - 1);
+    setQuantity(quantity === 1 ? 1 : quantity - 1);
   };
 
   const plusQuantity = () => {
@@ -69,9 +69,16 @@ function ProductDetail() {
     setOpen(true)
   };
 
+  //Modal xác nhận đơn hàng
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+    // navigate(`/products/${productId}`)
+    window.location.reload();
+  }
 
   useEffect(() => {
-    fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/" + productId)
+    fetchAPI("http://localhost:8000/products/" + productId)
       .then((data) => {
         console.log(data);
         setProductInfo(data.data)
@@ -88,12 +95,7 @@ function ProductDetail() {
   }
 
 
-  //Modal xác nhận đơn hàng
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
-    navigate("/cart")
-  }
+
 
 
   return (

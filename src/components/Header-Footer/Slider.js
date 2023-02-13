@@ -71,8 +71,8 @@ function Slider() {
     });
 
     return (
-        // <div>
-        //     <Row>
+        // <Container className="mx-auto">
+        // <Row>
         <Col xs={12} lg={12} md={12} sm={12}>
             <Carousel
                 previous={previousButton}
@@ -100,9 +100,8 @@ function Slider() {
                 />
             </Carousel>
         </Col>
-
-        //     </Row>
-        // </div>
+        // </Row>
+        // </Container>
     )
 }
 export default Slider;

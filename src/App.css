@@ -114,11 +114,11 @@
 }
 
 .product-card {
-  transition: 0.8s;
+  transition: 0.7s;
 }
 
 .product-card:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   transform: scale(1.06);
 }
 

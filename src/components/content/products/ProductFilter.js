@@ -52,7 +52,7 @@ function ProductFilter() {
 
     //Load Product Types
     useEffect(() => {
-        fetchAPI("https://my-store-nodejs-999.herokuapp.com/producttypes")
+        fetchAPI("http://localhost:8000/producttypes")
             .then((data) => {
                 setTypes(data.data)
                 console.log(data);
@@ -66,7 +66,7 @@ function ProductFilter() {
     // const filterProduct = () => {
     //     //Show All
     //     if (nameProduct === "" && productTypes === "" && minPrice === 0 && maxPrice === 0) {
-    //         fetchAPI(`https://my-store-nodejs-999.herokuapp.com/products`)
+    //         fetchAPI(`http://localhost:8000/products`)
     //             .then((data) => {
     //                 dispatch({
     //                     type: "ALL_PRODUCT",
@@ -81,7 +81,7 @@ function ProductFilter() {
     //     }
     //     //Tìm theo tên và loại và giá
     //    else{
-    //         fetchAPI(`https://my-store-nodejs-999.herokuapp.com/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`)
+    //         fetchAPI(`http://localhost:8000/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`)
     //             .then((data) => {
     //                 dispatch({
     //                     type: "ALL_PRODUCT",

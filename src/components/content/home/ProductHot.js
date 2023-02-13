@@ -15,7 +15,7 @@ function ProductHot() {
   }
 
   useEffect(() => {
-    fetchAPI("https://my-store-nodejs-999.herokuapp.com/products/?limit=6&skip=7")
+    fetchAPI("http://localhost:8000/products/?limit=6&skip=7")
       .then((data) => {
         setProductHot(data.data);
       })
@@ -32,7 +32,12 @@ function ProductHot() {
     <Container>
       {/* ////////  * PRODUCT *    ////////////// */}
       <Grid item xs={12} mt={12} mb={4}>
-        <Typography variant="h4" className="text-center"><b>Sản phẩm nổi bật</b></Typography>
+        <div className="header">
+          <h5 className="title">
+            <b>Sản phẩm nổi bật</b>
+          </h5>
+        </div>
+        {/* <Typography variant="h5" className="text-center"><b>Sản phẩm nổi bật</b></Typography> */}
       </Grid>
       <Grid container>
         {productHot.map((product, index) => {
@@ -48,7 +53,7 @@ function ProductHot() {
                         width="200"
                         image={product.imageUrl}
                         alt="green iguana"
-                        className="img-card"
+                      // className="img-card"
                       />
                       <CardContent>
                         <Typography
@@ -63,7 +68,7 @@ function ProductHot() {
                         </Typography>
                       </CardContent>
 
-                      <Grid container sx={{ pt: 1, pb: 2 }}>
+                      {/* <Grid container sx={{ pt: 1, pb: 2 }}>
                         <Grid item xs={6} align="right">
                           <Typography variant="body1" sx={{ mr: 2, fontSize: "16px", opacity: "0.6" }}>
                             <strike><b>${numberWithCommas(product.buyPrice)}</b></strike>
@@ -74,7 +79,7 @@ function ProductHot() {
                             <b>${numberWithCommas(product.promotionPrice)}</b>
                           </Typography>
                         </Grid>
-                      </Grid>
+                      </Grid> */}
                     </CardActionArea>
                   </Card>
                 </div>
