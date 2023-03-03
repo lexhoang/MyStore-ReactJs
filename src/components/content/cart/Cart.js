@@ -42,7 +42,7 @@ function Cart() {
     }
 
     const onBtnAddProductClick = (param) => {
-        orderList.map((element, index) => {
+        orderList.map((element) => {
             if (element.product == param.product) {
                 if (itemTotal > 0 && element.quantity <= param.info.quantity && Boolean(selectItem.find(item => item.product == element.product)) == true) {
                     let newTotal = itemTotal + param.info.promotionPrice;
@@ -73,14 +73,14 @@ function Cart() {
         let total = 0;
         let arraySelectedItem = [];
         if (event.target.checked) {
-            orderList.map((element, index) => {
+            orderList.map((element) => {
                 total += element.info.promotionPrice * element.quantity
                 arraySelectedItem.push(element)
                 document.getElementById(element.product).checked = true
             })
         }
         else {
-            orderList.map((element, index) => {
+            orderList.map((element) => {
                 document.getElementById(element.product).checked = false
             })
             total = 0;
@@ -243,7 +243,7 @@ function Cart() {
                                         </TableCell>
 
                                         <TableCell sx={{ width: "10%" }} className="text-center">
-                                            <button onClick={() => onDeleteItemClick(order)} class="custom-btn btn-deleteCart">Delete</button>
+                                            <button onClick={() => onDeleteItemClick(order)} className="custom-btn btn-deleteCart">Delete</button>
                                         </TableCell>
                                     </TableRow>
                                 ))}

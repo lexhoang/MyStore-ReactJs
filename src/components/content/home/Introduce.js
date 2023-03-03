@@ -17,7 +17,7 @@ function Introduce() {
                         Khám phá nhiều lựa chọn đồng hồ để tìm ra sự kết hợp hoàn hảo giữa phong cách và chức năng.
                     </Typography>
                     <Grid item lg={12} mt={5}>
-                        <div class="btn-introduce"><a href="/products">Learn more</a></div>
+                        <div className="btn-introduce"><a href="/products">Learn more</a></div>
                     </Grid>
                 </Grid>
 

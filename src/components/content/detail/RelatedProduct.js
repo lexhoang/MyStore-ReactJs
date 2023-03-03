@@ -28,7 +28,7 @@ function RelatedProject() {
                 {
                     relatedProject.map((product, index) => {
                         return (
-                            <Grid item xs={4} lg={2} md={2} sm={4}>
+                            <Grid item xs={4} lg={2} md={2} sm={4} key={index} >
                                 <Link href={product._id}>
                                     <Button>
                                         <img src={product.imageUrl} style={{ width: "80%", borderRadius: "10px" }} className="hover-related" />
