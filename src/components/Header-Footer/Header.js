@@ -97,11 +97,6 @@ function Header() {
   }, []);
 
 
-  useEffect(() => {
-    let orderList = JSON.parse(localStorage.getItem("orderList")) || [];
-    setItemList(orderList.length)
-  });
-
 
   //MODAL
   const logIn = () => {
@@ -130,13 +125,15 @@ function Header() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0);
+    let orderList = JSON.parse(localStorage.getItem("orderList")) || [];
+    setItemList(orderList.length)
   }, [])
 
   return (
     <Container style={{ marginBottom: "78px" }}>
       <AppBar position="fixed" style={{ backgroundColor: "#fff" }}>
-        <div maxWidth="xl">
+        <div>
           <Toolbar disableGutters>
             <Typography
               variant="h6"

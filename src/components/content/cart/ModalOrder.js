@@ -190,7 +190,7 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                                             <label>Country:</label>
                                         </Grid>
                                         <Grid item xs={12} sm={8}>
-                                            <FormControl fullWidth>
+                                            <FormControl fullWidth size="small">
                                                 <InputLabel id="demo-simple-select-helper-label">Quốc gia</InputLabel>
                                                 <Select
                                                     id="registerstatus-select"
@@ -198,7 +198,6 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                                                     fullWidth
                                                     label="Quốc gia"
                                                     onChange={(event) => { setCutomerCountry(event.target.value) }}
-                                                    size="small"
                                                 >
                                                     <MenuItem value="VN">Việt Nam</MenuItem>
                                                     <MenuItem value="USA">USA</MenuItem>

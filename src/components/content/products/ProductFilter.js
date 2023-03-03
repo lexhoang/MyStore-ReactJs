@@ -55,7 +55,7 @@ function ProductFilter() {
         fetchAPI("http://localhost:8000/producttypes")
             .then((data) => {
                 setTypes(data.data)
-                console.log(data);
+                // console.log(data);
             })
             .catch((error) => {
                 console.error(error.message);
@@ -133,8 +133,8 @@ function ProductFilter() {
                                     {
                                         types.map((types, index) => {
                                             return (
-                                                <Grid item xs={6} lg={4} md={4} sm={4}>
-                                                    <FormControlLabel key={index} value={types._id} control={<Radio onChange={onChangeProductTypes} />} label={types.name} />
+                                                <Grid item xs={6} lg={4} md={4} sm={4} key={index} >
+                                                    <FormControlLabel value={types._id} control={<Radio onChange={onChangeProductTypes} />} label={types.name} />
                                                 </Grid>
                                             )
                                         })

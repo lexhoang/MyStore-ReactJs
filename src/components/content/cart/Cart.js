@@ -48,7 +48,7 @@ function Cart() {
                     let newTotal = itemTotal + param.info.promotionPrice;
                     setItemTotal(newTotal);
                 }
-                if (element.quantity >= param.info.quantity) {
+                else if (element.quantity >= param.info.quantity) {
                     element.quantity = param.info.quantity
                 }
                 else {
@@ -257,10 +257,8 @@ function Cart() {
                                     </TableCell>
 
                                     <TableCell className="text-center">
-                                        <Typography variant='body1' sx={{ color: "red" }}>
-                                            <Typography variant='h6'>
-                                                <b>${numberWithCommas(itemTotal)}</b>
-                                            </Typography>
+                                        <Typography variant='h6' sx={{ color: "red" }}>
+                                            <b>${numberWithCommas(itemTotal)}</b>
                                         </Typography>
                                     </TableCell>
                                     <TableCell></TableCell>

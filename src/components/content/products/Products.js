@@ -25,45 +25,42 @@ function Products() {
     return data;
   };
 
-  useEffect(
-    (data) => {
-      if (
-        nameProduct === "" &&
-        productTypes === "" &&
-        minPrice === 0 &&
-        maxPrice === 0
-      ) {
-        fetchAPI("http://localhost:8000/products")
-          .then((data) => {
-            setNoPage(Math.ceil(data.data.length / limit));
-            dispatch({
-              type: "ALL_PRODUCT",
-              setProducts: data.data.slice((page - 1) * limit, page * limit),
-            });
-            console.log(data);
-          })
-          .catch((error) => {
-            console.error(error.message);
+  useEffect(() => {
+    if (
+      nameProduct === "" &&
+      productTypes === "" &&
+      minPrice === 0 &&
+      maxPrice === 0
+    ) {
+      fetchAPI("http://localhost:8000/products")
+        .then((data) => {
+          setNoPage(Math.ceil(data.data.length / limit));
+          dispatch({
+            type: "ALL_PRODUCT",
+            setProducts: data.data.slice((page - 1) * limit, page * limit),
           });
-      } else {
-        fetchAPI(
-          `http://localhost:8000/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`
-        )
-          .then((data) => {
-            setNoPage(Math.ceil(data.data.length / limit));
-            dispatch({
-              type: "ALL_PRODUCT",
-              setProducts: data.data.slice((page - 1) * limit, page * limit),
-            });
-            console.log(data);
-          })
-          .catch((error) => {
-            console.error(error.message);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    } else {
+      fetchAPI(
+        `http://localhost:8000/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`
+      )
+        .then((data) => {
+          setNoPage(Math.ceil(data.data.length / limit));
+          dispatch({
+            type: "ALL_PRODUCT",
+            setProducts: data.data.slice((page - 1) * limit, page * limit),
           });
-      }
-    },
-    [limit, page, nameProduct, productTypes, minPrice, maxPrice]
-  );
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    }
+  }, [limit, page, nameProduct, productTypes, minPrice, maxPrice]);
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')

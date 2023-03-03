@@ -189,7 +189,7 @@ function ProductDetail() {
             </Grid>
           </Grid>
 
-          <Grid p={1} mt={2} mb={5} item xs={12} md={6} lg={6} sm={12}
+          <Grid item p={1} mt={2} mb={5} xs={12} md={6} lg={6} sm={12}
             style={{
               color: "white",
               backgroundColor: "#009688",
@@ -205,7 +205,7 @@ function ProductDetail() {
       </Grid>
 
       <Grid container mt={8} className="p-3" style={{ borderRadius: "14px", backgroundColor: "#f4f5fb" }}>
-        <Grid xs={12}>
+        <Grid item xs={12}>
           <Typography variant="h5">
             <b>Description</b>
           </Typography>
