@@ -25,17 +25,20 @@ import { useDispatch, useSelector } from "react-redux"
 
 
 const navLinkStyle = ({ isActive }) => ({
-  backgroundColor: isActive ? "orange" : "",
-  borderRadius: isActive ? "38px" : "",
-  padding: "14px 18px",
   textDecoration: "none",
+  backgroundColor: isActive ? "rgb(239 68 68)" : "",
+  padding: "12px 20px",
+  borderRadius: "2px 16px",
+  fontSize: "12px",
+  fontWeight: isActive ? "bold" : "",
 })
 
 const navLinkResponsiveStyle = ({ isActive }) => ({
-  backgroundColor: isActive ? "orange" : "",
-  borderRadius: isActive ? "24px" : "",
-  padding: "6px",
   textDecoration: "none",
+  // color: isActive ? "white" : "black",
+  backgroundColor: isActive ? "rgb(239 68 68)" : "",
+  padding: "8px 30px",
+  borderRadius: "4px 16px",
 })
 
 function Header() {
