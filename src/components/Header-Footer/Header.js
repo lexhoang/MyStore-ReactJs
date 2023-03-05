@@ -128,7 +128,7 @@ function Header() {
   };
 
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     let orderList = JSON.parse(localStorage.getItem("orderList")) || [];
     setItemList(orderList.length)
   }, [])
