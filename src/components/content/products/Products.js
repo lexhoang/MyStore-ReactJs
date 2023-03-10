@@ -39,7 +39,7 @@ function Products() {
             type: "ALL_PRODUCT",
             setProducts: data.data.slice((page - 1) * limit, page * limit),
           });
-          console.log(data);
+          // console.log(data);
         })
         .catch((error) => {
           console.error(error.message);
@@ -54,7 +54,7 @@ function Products() {
             type: "ALL_PRODUCT",
             setProducts: data.data.slice((page - 1) * limit, page * limit),
           });
-          console.log(data);
+          // console.log(data);
         })
         .catch((error) => {
           console.error(error.message);

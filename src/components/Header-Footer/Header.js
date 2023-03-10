@@ -89,7 +89,7 @@ function Header() {
 
   useEffect(() => {
     auth.onAuthStateChanged((result) => {
-      console.log(result);
+      // console.log(result);
       dispatch({
         type: "USER",
         user: result
