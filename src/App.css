@@ -94,7 +94,10 @@
 }
 
 /* BTN-LOGIN */
-.text-login {
+.btn-login {
+  background: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  color: #fff;
+  border-radius: 28px;
   animation: button-animation 1.1s ease-in-out infinite;
 }
 @keyframes button-animation {
@@ -109,7 +112,7 @@
   }
 }
 
-.text-login:hover {
+.btn-login:hover {
   color: rgb(29, 202, 144);
 }
 

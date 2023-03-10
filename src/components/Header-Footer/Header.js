@@ -300,9 +300,9 @@ function Header() {
                 </Box>
                 :
                 <Box sx={{ flexGrow: 0, mr: 5 }}>
-                  <Typography variant="body1" onClick={logIn} style={{ cursor: "pointer", color: "#43a047" }}>
-                    <b className="text-login"><LoginIcon /> Login</b>
-                  </Typography>
+                  <Button variant="contained" className="btn-login" onClick={logIn} style={{ cursor: "pointer" }}>
+                    <LoginIcon /> Login
+                  </Button>
 
                   {/* <Link href="/login" style={{ cursor: "pointer", color: "black", textDecoration: "none" }}>
                     <b className="text-login"><LoginIcon /> Login</b>
