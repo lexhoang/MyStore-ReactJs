@@ -65,7 +65,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
             };
             fetchAPI("http://localhost:8000/customers/phone/", body)
                 .then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     closeModalOrderProp();
                     localStorage.clear();
                     swal("Đặt hàng thành công!", "You clicked the button!", "success")
@@ -132,7 +132,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                         <Grid item xs={12}>
                             <Grid container>
                                 {/* Full name   */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Full name:</label>
@@ -143,7 +143,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Phone */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Phone:</label>
@@ -154,7 +154,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Email */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Email:</label>
@@ -165,7 +165,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Address */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Address:</label>
@@ -176,7 +176,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* City */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>City:</label>
@@ -187,13 +187,13 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Country */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Country:</label>
                                         </Grid>
                                         <Grid item xs={8}>
-                                            <FormControl sx={{ width: "200px" }}>
+                                            <FormControl sx={{ width: "200px" }} size="small" fullWidth>
                                                 <InputLabel id="demo-simple-select-helper-label">Quốc gia</InputLabel>
                                                 <Select
                                                     id="registerstatus-select"
@@ -201,7 +201,6 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                                     fullWidth
                                                     label="Quốc gia"
                                                     onChange={(event) => { setCutomerCountry(event.target.value) }}
-                                                    size="small"
                                                 >
                                                     <MenuItem value="VN">Việt Nam</MenuItem>
                                                     <MenuItem value="USA">USA</MenuItem>
@@ -212,7 +211,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Shipped date  */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Shipped date:</label>
@@ -223,7 +222,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Note  */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Note:</label>
@@ -234,7 +233,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                                     </Grid>
                                 </Grid>
                                 {/* Total  */}
-                                <Grid item xs={12} mt={1}>
+                                <Grid item xs={12} mt={2}>
                                     <Grid container>
                                         <Grid item xs={4}>
                                             <label>Giá:</label>
@@ -252,7 +251,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                     </Grid>
 
                     <Grid container sx={{ pb: 5 }}>
-                        <Grid item xs={12} mt={1}>
+                        <Grid item xs={12} mt={2}>
                             <Grid container mt={4}>
                                 <Grid item xs={8} align="center">
                                     <Button onClick={onBtnOrderClick} className="bg-success w-75 text-white">Tạo đơn hàng</Button>
