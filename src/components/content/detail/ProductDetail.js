@@ -8,24 +8,51 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
-// import { useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 function ProductDetail() {
   //Link đến trang theo ID
   const { productId } = useParams();
-  const navigate = useNavigate();
+
+  const { cart } = useSelector((reduxData) => reduxData.cartReducer);
+
+  let getCount = localStorage.getItem(productId) ?? 0
+  const [count, setCount] = useState(parseInt(getCount));
 
   const [productInfo, setProductInfo] = useState({});
 
-  // const { use } = useSelector((reduxData) => reduxData.taskReducer);
-  // const dispatch = useDispatch();
 
   //Tính tiền
-  const [quantity, setQuantity] = useState(1);
-  const [bill, setBill] = useState(1);
+  const [quantity, setQuantity] = useState(0);
+  const [bill, setBill] = useState(0);
 
+  const dispatch = useDispatch();
+
+
+  const btnAddCart = () => {
+    var cartCount = parseInt(cart) + quantity
+    setCount(count + quantity);
+    localStorage.setItem(productId, count)
+    for (let i = 0; i < quantity; i++) {
+      dispatch({
+        type: "ADD_CART",
+        cart: cartCount,
+        id: productInfo._id,
+      })
+    }
+    localStorage.setItem("cart", cartCount);
+    setOpen(true);
+  };
+  //Modal xác nhận đơn hàng
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+    // navigate(`/products/${productId}`)
+  }
+
+  //Tính tiền
   const minusQuantity = () => {
-    setQuantity(quantity === 1 ? 1 : quantity - 1);
+    setQuantity(quantity === 0 ? 0 : quantity - 1);
   };
 
   const plusQuantity = () => {
@@ -39,57 +66,20 @@ function ProductDetail() {
     return data;
   };
 
-  const btnAddCart = () => {
-    let newSelect = {
-      product: productId,
-      quantity: quantity,
-      info: productInfo
-    }
-    let orderList = JSON.parse(localStorage.getItem("orderList")) || [];
-
-    if (orderList.length >= 1) {
-      const productExit = orderList.find(element => element.product == newSelect.product);
-
-      if (Boolean(productExit)) {
-        productExit.quantity += newSelect.quantity
-      }
-      else {
-        orderList.push(newSelect);
-      }
-    }
-    else {
-      console.log("false")
-      orderList.push(newSelect);
-    }
-    console.log(orderList);
-
-    localStorage.setItem("orderList", JSON.stringify(orderList));
-    setOpen(true)
-  };
-
-  //Modal xác nhận đơn hàng
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
-    // navigate(`/products/${productId}`)
-    window.location.reload();
-  }
-
   useEffect(() => {
     fetchAPI("http://localhost:8000/products/" + productId)
       .then((data) => {
         // console.log(data);
-        // console.log(data.data);
-        setProductInfo(data.data);
-
-        //Tính tiền
-        // console.log("productInfo.promotionPrice:", data.data.promotionPrice)
-        setBill(quantity === 0 ? 0 : quantity * data.data.promotionPrice);
+        setProductInfo(data.data)
       })
       .catch((error) => {
         console.error(error.message);
       });
+    //Tính tiền
+    setBill(quantity === 0 ? 0 : quantity * productInfo.promotionPrice);
   }, [quantity]);
+
+  localStorage.setItem(productId, count);
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')

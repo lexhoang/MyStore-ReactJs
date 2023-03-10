@@ -1,25 +1,38 @@
-import { Container, Grid, Alert, Box, Button, Input, MenuItem, Modal, Select, Snackbar, Typography, FormControl, InputLabel, TextField } from "@mui/material"
+import { Container, Grid, Box, Button, Input, MenuItem, Modal, Select, Typography, FormControl, InputLabel, TextField } from "@mui/material"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+
 import swal from 'sweetalert';
 
+//Style
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #fff',
+    boxShadow: 24,
+    fontWeight: "bold",
 
-function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) {
-    const navigate = useNavigate();
+};
+
+
+function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOrderProp, nameProps, emailProps }) {
 
     const { user } = useSelector((reduxData) => reduxData.taskReducer);
-    const [customerName, setCutomerName] = useState("");
-    const [customerEmail, setCutomerEmail] = useState("");
+    const [customerName, setCutomerName] = useState(nameProps ?? "");
+    const [customerEmail, setCutomerEmail] = useState(emailProps ?? "");
     const [customerPhone, setCutomerPhone] = useState("");
     const [customerAddress, setCutomerAddress] = useState("");
     const [customerCity, setCutomerCity] = useState("");
     const [customerCountry, setCutomerCountry] = useState("");
     const [shippedDate, setShippedDate] = useState(new Date().toISOString().split('T')[0])
-    const [note, setNote] = useState("");
+    const [note, setNote] = useState('');
 
     const btnCancleClick = () => {
-        closeModalOrder()
+        closeModalOrderProp()
     }
 
 
@@ -41,10 +54,10 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                     address: customerAddress,
                     city: customerCity,
                     country: customerCountry,
-                    orderDetail: selectItem,
-                    cost: itemTotal,
+                    orderDetail: listOrderProp,
+                    cost: totalProp,
                     note: note,
-                    shippedDate: shippedDate
+                    shippedDate: new Date(shippedDate).toISOString()
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -53,19 +66,17 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
             fetchAPI("http://localhost:8000/customers/phone/", body)
                 .then((data) => {
                     console.log(data);
-                    swal("Đặt hàng thành công!", "You clicked the button!", "success", {
-                        button: "Go home"
-                    })
-                        .then((result) => {
-                            navigate("/")
-                        });
-                    closeModalOrder();
+                    closeModalOrderProp();
                     localStorage.clear();
+                    swal("Đặt hàng thành công!", "You clicked the button!", "success")
+                        .then((result) => {
+                            window.location.reload()
+                        })
                 })
                 .catch((error) => {
                     swal("Đặt hàng không thành công!", "You clicked the button!", "error");
                     console.log(error.message);
-                })
+                });
         }
     }
 
@@ -96,13 +107,9 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
             swal("Chưa chọn quốc gia!", "You clicked the button!", "error");
             return false
         }
-        if (itemTotal === 0) {
-            swal("Chưa chọn sản phẩm!", "You clicked the button!", "error");
-            return false
-        }
-
         return true
     }
+
 
     useEffect(() => {
         if (user) {
@@ -111,86 +118,82 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
         }
     }, [user])
 
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-    }
-
     return (
         <Container>
-            <Modal open={openModalOrder} onClose={btnCancleClick} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                <Box className="modal-style">
-                    <Grid item xs={12} align="center" p={1} style={{ backgroundColor: "#37474f" }}>
-                        <Typography variant="h5" gutterBottom sx={{ color: "#ff5722" }}>
-                            <b>Xác nhận đơn hàng</b>
+            <Modal open={openModalOrderProp} onClose={btnCancleClick} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                <Box sx={style} className="modalorder">
+                    <Grid item xs={12} align="center" p={1}>
+                        <Typography variant="h5" gutterBottom sx={{ color: "#000" }}>
+                            <b>Xác Nhận Đơn Hàng</b>
                         </Typography>
                     </Grid>
 
-                    <Grid container mt={5}>
-                        <Grid item xs={12} sx={{ pr: 5, pl: 3 }}>
+                    <Grid container mt={2} sx={{ pr: 4, pl: 4 }}>
+                        <Grid item xs={12}>
                             <Grid container>
                                 {/* Full name   */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Full name:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
+                                        <Grid item xs={8}>
                                             <TextField label="Full name" size="small" fullWidth value={customerName} onChange={(event) => { setCutomerName(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Phone */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Phone:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
-                                            <TextField label="Phone" size="small" fullWidth value={customerPhone} onChange={(event) => { setCutomerPhone(event.target.value) }} />
+                                        <Grid item xs={8}>
+                                            <TextField type="number" label="Phone" size="small" fullWidth value={customerPhone} onChange={(event) => { setCutomerPhone(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Email */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Email:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
+                                        <Grid item xs={8}>
                                             <TextField label="Email" size="small" fullWidth value={customerEmail} onChange={(event) => { setCutomerEmail(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Address */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Address:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
+                                        <Grid item xs={8}>
                                             <TextField label="Address" size="small" fullWidth value={customerAddress} onChange={(event) => { setCutomerAddress(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* City */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>City:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
+                                        <Grid item xs={8}>
                                             <TextField label="City" size="small" fullWidth value={customerCity} onChange={(event) => { setCutomerCity(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Country */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Country:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
-                                            <FormControl fullWidth size="small">
+                                        <Grid item xs={8}>
+                                            <FormControl sx={{ width: "200px" }}>
                                                 <InputLabel id="demo-simple-select-helper-label">Quốc gia</InputLabel>
                                                 <Select
                                                     id="registerstatus-select"
@@ -198,46 +201,47 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
                                                     fullWidth
                                                     label="Quốc gia"
                                                     onChange={(event) => { setCutomerCountry(event.target.value) }}
+                                                    size="small"
                                                 >
                                                     <MenuItem value="VN">Việt Nam</MenuItem>
                                                     <MenuItem value="USA">USA</MenuItem>
-                                                    <MenuItem value="CHINA">Trung Quốc</MenuItem>
+                                                    <MenuItem value="JAPAN">Japanese</MenuItem>
                                                 </Select>
                                             </FormControl>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Shipped date  */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Shipped date:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
+                                        <Grid item xs={8}>
                                             <TextField label="Shipped date" size="small" fullWidth value={shippedDate} onChange={(event) => { setShippedDate(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Note  */}
-                                <Grid item xs={12} sm={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={12} sm={4}>
+                                        <Grid item xs={4}>
                                             <label>Note:</label>
                                         </Grid>
-                                        <Grid item xs={12} sm={8}>
+                                        <Grid item xs={8}>
                                             <TextField label="Note" size="small" fullWidth value={note} onChange={(event) => { setNote(event.target.value) }} />
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 {/* Total  */}
-                                <Grid item xs={12} mt={2}>
+                                <Grid item xs={12} mt={1}>
                                     <Grid container>
-                                        <Grid item xs={6} sm={4} md={4}>
-                                            <label>Thành tiền:</label>
+                                        <Grid item xs={4}>
+                                            <label>Giá:</label>
                                         </Grid>
-                                        <Grid item xs={6} sm={8} md={8}>
+                                        <Grid item xs={8}>
                                             <Typography variant="h6" sx={{ color: "red" }}>
-                                                <b>${numberWithCommas(itemTotal)}</b>
+                                                <b> $ {totalProp.toLocaleString()} </b>
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -247,13 +251,13 @@ function ModalOrder({ openModalOrder, closeModalOrder, selectItem, itemTotal }) 
 
                     </Grid>
 
-                    <Grid container>
-                        <Grid item xs={12} sm={12} mt={3}>
+                    <Grid container sx={{ pb: 5 }}>
+                        <Grid item xs={12} mt={1}>
                             <Grid container mt={4}>
-                                <Grid item xs={12} sm={8} align="center">
+                                <Grid item xs={8} align="center">
                                     <Button onClick={onBtnOrderClick} className="bg-success w-75 text-white">Tạo đơn hàng</Button>
                                 </Grid>
-                                <Grid item xs={12} sm={4} align="center">
+                                <Grid item xs={4} align="center">
                                     <Button onClick={btnCancleClick} className="bg-secondary w-75 text-white">Hủy Bỏ</Button>
                                 </Grid>
                             </Grid>

@@ -4,7 +4,7 @@ import ModalLogIn from "../content/home/ModalLogIn";
 
 
 import { AppBar, Box, Toolbar, IconButton, Menu, MenuItem, Avatar, Tooltip } from '@mui/material';
-import { Container, Grid, Typography, Button } from "@mui/material";
+import { Container, Grid, Typography, Button, Badge } from "@mui/material";
 import { NavLink } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -43,10 +43,9 @@ const navLinkResponsiveStyle = ({ isActive }) => ({
 
 function Header() {
   const { user, nameProduct } = useSelector((reduxData) => reduxData.taskReducer);
+  const { cart } = useSelector((reduxData) => reduxData.cartReducer);
 
   const dispatch = useDispatch();
-
-  const [itemList, setItemList] = useState(0);
 
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -129,8 +128,6 @@ function Header() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    let orderList = JSON.parse(localStorage.getItem("orderList")) || [];
-    setItemList(orderList.length)
   }, [])
 
   return (
@@ -209,15 +206,9 @@ function Header() {
                 <MenuItem>
                   <NavLink to="/cart" style={navLinkResponsiveStyle}>
                     <Tooltip title="Giỏ hàng">
-                      <Button>
-                        <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
-                        <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
-                          <span style={{ fontSize: "16px" }}>
-                            {itemList}
-                          </span>
-                        </div>
-                        <Typography className="mt-1" variant="body2" style={{ color: "black" }}>Giỏ hàng</Typography>
-                      </Button>
+                      <Badge color="error" badgeContent={cart}>
+                        <Button sx={{ color: "black" }}><ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />Giỏ hàng</Button>
+                      </Badge>
                     </Tooltip>
                   </NavLink>
                 </MenuItem>
@@ -271,28 +262,17 @@ function Header() {
                     </Button>
                   </Tooltip>
                 </NavLink>
-              </Container>
-            </Box>
 
-            <Box>
-              <Container
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
                 <NavLink to="/cart" style={navLinkStyle}>
                   <Tooltip title="Giỏ hàng">
-                    <Button>
-                      <ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} />
-                      <div className="text-white d-flex align-items-center justify-content-center" style={{ backgroundColor: "red", marginTop: "-30px", width: "20px", height: "20px", borderRadius: "50%" }}>
-                        <span style={{ fontSize: "16px" }}>
-                          {itemList}
-                        </span>
-                      </div>
-                    </Button>
+                    <Badge color="error" badgeContent={cart}>
+                      <Button><ShoppingCartIcon sx={{ fontSize: 30, color: "black" }} /></Button>
+                    </Badge>
                   </Tooltip>
                 </NavLink>
               </Container>
             </Box>
+
             {
               user ?
                 <Box sx={{ flexGrow: 0, mr: 5 }}>
