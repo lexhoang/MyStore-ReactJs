@@ -15,7 +15,7 @@ function ProductHot() {
   }
 
   useEffect(() => {
-    fetchAPI("http://localhost:8000/products/?limit=6&skip=7")
+    fetchAPI("https://my-store-node-js.vercel.app/products/?limit=6&skip=7")
       .then((data) => {
         setProductHot(data.data);
       })

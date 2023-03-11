@@ -63,7 +63,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             };
-            fetchAPI("http://localhost:8000/customers/phone/", body)
+            fetchAPI("https://my-store-node-js.vercel.app/customers/phone/", body)
                 .then((data) => {
                     // console.log(data);
                     closeModalOrderProp();

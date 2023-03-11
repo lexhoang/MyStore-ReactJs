@@ -18,7 +18,7 @@ function ProductNew() {
 
   useEffect((data) => {
     if (nameProduct === "") {
-      fetchAPI(`http://localhost:8000/products/?limit=8`)
+      fetchAPI(`https://my-store-node-js.vercel.app/products/?limit=8`)
         .then((data) => {
           dispatch({
             type: "ALL_PRODUCT",
@@ -30,7 +30,7 @@ function ProductNew() {
           console.error(error.message);
         });
     } else {
-      fetchAPI(`http://localhost:8000/products/?name=${nameProduct}`)
+      fetchAPI(`https://my-store-node-js.vercel.app/products/?name=${nameProduct}`)
         .then((data) => {
           dispatch({
             type: "ALL_PRODUCT",

@@ -32,7 +32,7 @@ function Products() {
       minPrice === 0 &&
       maxPrice === 0
     ) {
-      fetchAPI("http://localhost:8000/products")
+      fetchAPI("https://my-store-node-js.vercel.app/products")
         .then((data) => {
           setNoPage(Math.ceil(data.data.length / limit));
           dispatch({
@@ -46,7 +46,7 @@ function Products() {
         });
     } else {
       fetchAPI(
-        `http://localhost:8000/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`
+        `https://my-store-node-js.vercel.app/products/?name=${nameProduct}&type=${productTypes}&minPromotionPrice=${minPrice}&maxPromotionPrice=${maxPrice}`
       )
         .then((data) => {
           setNoPage(Math.ceil(data.data.length / limit));

@@ -88,7 +88,7 @@ function Cart() {
     };
 
     useEffect(() => {
-        fetchAPI("http://localhost:8000/products")
+        fetchAPI("https://my-store-node-js.vercel.app/products")
             .then((data) => {
                 setProductCart(data.data.filter(product => id.includes(product._id)))
                 let arr = []
