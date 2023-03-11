@@ -209,7 +209,8 @@ function Cart() {
                                             </TableCell>
 
                                             <TableCell sx={{ width: "10%" }} className="text-center">
-                                                <Button variant="contained" onClick={() => onBtnDelete(order._id, localStorage.getItem(order._id))}>xóa</Button>
+                                                <Button variant="contained" className="btn-deleteCart"
+                                                    onClick={() => onBtnDelete(order._id, localStorage.getItem(order._id))}>xóa</Button>
                                             </TableCell>
                                         </TableRow>
                                     )
