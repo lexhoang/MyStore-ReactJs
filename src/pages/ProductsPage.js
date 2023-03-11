@@ -13,7 +13,7 @@ const breadCrumbs = [
     route: "/",
   },
   {
-    name: "trang sản phẩm",
+    name: "Trang sản phẩm",
     route: "/products",
   }
 ]

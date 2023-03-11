@@ -209,7 +209,7 @@ function Cart() {
                                             </TableCell>
 
                                             <TableCell sx={{ width: "10%" }} className="text-center">
-                                                <Button variant="contained" className="btn-deleteCart"
+                                                <Button className="btn-deleteCart" sx={{ backgroundColor: "red", color: "#fff" }}
                                                     onClick={() => onBtnDelete(order._id, localStorage.getItem(order._id))}>xóa</Button>
                                             </TableCell>
                                         </TableRow>
@@ -221,7 +221,6 @@ function Cart() {
                                     <TableCell className="text-center">
                                         <Typography variant="body1" sx={{ color: "red" }}><b>Thành tiền</b></Typography>
                                     </TableCell>
-                                    <TableCell></TableCell>
                                     <TableCell></TableCell>
                                     <TableCell className="text-center">
                                         <Typography variant='body1' sx={{ color: "red" }}>
