@@ -74,7 +74,8 @@
 
 .btn-introduce:hover::before
 
-/*lightup button*/ {
+/*lightup button*/
+  {
   bottom: 0;
   height: 50%;
   width: 80%;
@@ -97,7 +98,8 @@
 
 .btn-introduce:hover::after
 
-/*lightup button*/ {
+/*lightup button*/
+  {
   top: 0;
   height: 50%;
   width: 80%;
@@ -146,11 +148,9 @@
 
 .btn-hotProduct span {
   background: rgb(0, 172, 238);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 172, 238, 1) 0%,
-    rgba(2, 126, 251, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 172, 238, 1) 0%,
+      rgba(2, 126, 251, 1) 100%);
   display: block;
   position: absolute;
   width: 130px;
@@ -206,11 +206,9 @@
 
 /* Button New */
 .btn-newProduct {
-  background: linear-gradient(
-    0deg,
-    rgba(255, 151, 0, 1) 0%,
-    rgba(251, 75, 2, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(255, 151, 0, 1) 0%,
+      rgba(251, 75, 2, 1) 100%);
   line-height: 42px;
   padding: 0;
   border: none;
@@ -323,4 +321,30 @@
 
 .btn-deleteCart:active {
   top: 2px;
+}
+
+/* BTN-LOGIN */
+.btn-loginGG {
+  background: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  /* background-color: #ec407a; */
+  color: #fff;
+  animation: button-animation 1.1s ease-in-out infinite;
+}
+
+@keyframes button-animation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-loginGG:hover {
+  color: rgb(2, 255, 171);
 }
