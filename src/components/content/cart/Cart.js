@@ -230,7 +230,7 @@ function Cart() {
                                     <TableCell className="text-center">
                                         {user ?
                                             <Button variant="contained" color="info" onClick={btnOpenOrder}>
-                                                <b>Thanh toán</b>
+                                                <b>Đặt hàng</b>
                                             </Button>
                                             :
                                             <Button variant="contained" color="warning" onClick={btnOpenOrder}>
