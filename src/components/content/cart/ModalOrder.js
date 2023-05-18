@@ -70,7 +70,7 @@ function ModalOrder({ openModalOrderProp, closeModalOrderProp, totalProp, listOr
                     localStorage.clear();
                     swal("Đặt hàng thành công!", "You clicked the button!", "success")
                         .then((result) => {
-                            window.location.reload()
+                            // window.location.reload()
                         })
                 })
                 .catch((error) => {
