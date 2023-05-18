@@ -95,14 +95,14 @@ function Cart() {
                 for (var property in bill(id)) {
                     let total = bill(id)[property] * (data.data.filter(product => id.includes(product._id))).find(({ _id }) => _id === property).promotionPrice
                     let obj = {
-                        id: property,
-                        count: bill(id)[property],
+                        product: property,
+                        quantity: bill(id)[property],
                         price: total
                     }
                     arr.push(obj)
                 }
                 for (let i = 0; i > arr.length; i++) {
-                    setTotal(total + arr[i].count * arr[i].price)
+                    setTotal(total + arr[i].quantity * arr[i].price)
                 }
                 const sumall = arr.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
                 setListOrder(arr)
